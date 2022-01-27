@@ -3,7 +3,9 @@
 const app = Vue.createApp({
   data() {
     return {
-      message: 'Hello Vue!',
+      title: 'In Search of Lost Time',
+      author: 'Marcel Proust',
+      year: '1913',
     };
   },
 });
