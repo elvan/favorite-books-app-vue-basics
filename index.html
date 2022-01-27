@@ -6,13 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Greatest Books of All Time</title>
     <style>
-      .box {
-        padding: 100px 0;
-        width: 400px;
-        text-align: center;
-        background-color: #ddd;
-        margin: 20px;
-        display: inline-block;
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #eee;
+        max-width: 920px;
+        margin: 20px auto;
+      }
+
+      p,
+      ul,
+      h3 {
+        margin: 0;
+        padding: 0;
+      }
+
+      li {
+        list-style: none;
+        background-color: #fff;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      li.favorite {
+        background-color: deepskyblue;
       }
 
     </style>
@@ -36,7 +59,7 @@
 
       <div v-if="showBooks">
         <ul>
-          <li v-for="book in books">
+          <li v-for="book in books" :class="{ favorite: book.isFavorite}">
             <img :src="book.imageUrl" :alt="book.title">
             <h3>{{ book.title }}</h3>
             <p>{{ book.author }}</p>
