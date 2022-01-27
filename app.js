@@ -4,9 +4,33 @@ const app = Vue.createApp({
   data() {
     return {
       showBooks: true,
-      title: 'In Search of Lost Time',
-      author: 'Marcel Proust',
-      year: '1913',
+      books: [
+        {
+          title: 'In Search of Lost Time',
+          author: 'Marcel Proust',
+          year: 1913,
+        },
+        {
+          title: 'Ulysses',
+          author: 'James Joyce',
+          year: 1922,
+        },
+        {
+          title: 'Don Quixote',
+          author: 'Miguel de Cervantes',
+          year: 1605,
+        },
+        {
+          title: 'One Hundred Years of Solitude',
+          author: 'Gabriel Garcia Marquez',
+          year: 1967,
+        },
+        {
+          title: 'The Great Gatsby',
+          author: 'F. Scott Fitzgerald',
+          year: 1925,
+        },
+      ],
       offsetX: 0,
       offsetY: 0,
     };
