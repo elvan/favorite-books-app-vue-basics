@@ -3,6 +3,7 @@
 const app = Vue.createApp({
   data() {
     return {
+      showBooks: true,
       title: 'In Search of Lost Time',
       author: 'Marcel Proust',
       year: '1913',
@@ -20,6 +21,10 @@ const app = Vue.createApp({
 
     changeTitle(title) {
       this.title = title;
+    },
+
+    toggleShowBooks() {
+      this.showBooks = !this.showBooks;
     },
   },
 });
