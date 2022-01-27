@@ -51,6 +51,22 @@
     <div id="app">
       <h1>The Greatest Books of All Time</h1>
 
+      <h2>Your Favorites</h2>
+      <ul v-if="filteredBooks.length > 0">
+        <li
+          v-for="book in filteredBooks"
+          :key="book.id"
+          :class="{favorite: book.favorite}"
+        >
+          <h3>{{ book.title }}</h3>
+          <p>{{ book.author }}</p>
+          <p>{{ book.year }}</p>
+        </li>
+      </ul>
+      <p v-if="filteredBooks.length === 0">
+        You have no favorites. Click on a book to favorite it.
+      </p>
+
       <div>
         <button @click="toggleShowBooks()">
           <span v-if="showBooks">Hide Books</span>
@@ -62,6 +78,7 @@
         <ul>
           <li
             v-for="book in books"
+            :key="book.id"
             :class="{ favorite: book.isFavorite}"
             @click="toggleFavorite(book.id)"
           >

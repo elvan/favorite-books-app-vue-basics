@@ -56,6 +56,14 @@ const app = Vue.createApp({
     };
   },
 
+  computed: {
+    filteredBooks() {
+      return this.books.filter((book) => {
+        return book.isFavorite;
+      });
+    },
+  },
+
   methods: {
     toggleShowBooks() {
       this.showBooks = !this.showBooks;
