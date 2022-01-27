@@ -24,18 +24,8 @@
   <body>
     <!-- https://thegreatestbooks.org/ -->
 
-    <h1>The Greatest Books of All Time</h1>
-
     <div id="app">
-      <div v-if="showBooks">
-        <ul>
-          <li v-for="book in books">
-            <h3>{{ book.title }}</h3>
-            <p>{{ book.author }}</p>
-            <p>{{ book.year }}</p>
-          </li>
-        </ul>
-      </div>
+      <h1>The Greatest Books of All Time</h1>
 
       <div>
         <button @click="toggleShowBooks()">
@@ -44,12 +34,16 @@
         </button>
       </div>
 
-      <!--
-      <div class="box" @mouseover="handleEvent($event, 5)">mouseover</div>
-      <div class="box" @mouseleave="handleEvent">mouseleave</div>
-      <div class="box" @dblclick="handleEvent">double-click</div>
-      <div class="box" @mousemove="handleMouseMove">position ({{ offsetX }}, {{ offsetY }})</div>
-      -->
+      <div v-if="showBooks">
+        <ul>
+          <li v-for="book in books">
+            <img :src="book.imageUrl" :alt="book.title">
+            <h3>{{ book.title }}</h3>
+            <p>{{ book.author }}</p>
+            <p>{{ book.year }}</p>
+          </li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>
