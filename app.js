@@ -8,6 +8,20 @@ const app = Vue.createApp({
       year: '1913',
     };
   },
+
+  methods: {
+    increase() {
+      this.year++;
+    },
+
+    decrease() {
+      this.year--;
+    },
+
+    changeTitle(title) {
+      this.title = title;
+    },
+  },
 });
 
 app.mount('#app');
