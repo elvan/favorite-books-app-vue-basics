@@ -5,6 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Greatest Books of All Time</title>
+    <style>
+      .box {
+        padding: 100px 0;
+        width: 400px;
+        text-align: center;
+        background-color: #ddd;
+        margin: 20px;
+        display: inline-block;
+      }
+
+    </style>
     <script
       src="https://unpkg.com/vue@3.2.29/dist/vue.global.js"
       defer></script>
@@ -20,16 +31,17 @@
         <p>{{ title }} - {{ year }} - {{ author }}</p>
       </div>
 
-      <button v-on:click="increase()">Increase Year</button>
-      <button v-on:click="decrease()">Decrease Year</button>
+      <div>
+        <button @click="toggleShowBooks()">
+          <span v-if="showBooks">Hide Books</span>
+          <span v-else>Show Books</span>
+        </button>
+      </div>
 
-      <button @click="changeTitle('Ulysses')">Change Title</button>
-      <button @click="toggleShowBooks()">
-        <span v-if="showBooks">Hide Books</span>
-        <span v-else>Show Books</span>
-      </button>
-
-      <div v-show="showBooks">Currently showing books</div>
+      <div class="box" @mouseover="handleEvent($event, 5)">mouseover</div>
+      <div class="box" @mouseleave="handleEvent">mouseleave</div>
+      <div class="box" @dblclick="handleEvent">double-click</div>
+      <div class="box" @mousemove="handleMouseMove">position ({{ offsetX }}, {{ offsetY }})</div>
     </div>
   </body>
 </html>

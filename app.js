@@ -7,6 +7,8 @@ const app = Vue.createApp({
       title: 'In Search of Lost Time',
       author: 'Marcel Proust',
       year: '1913',
+      offsetX: 0,
+      offsetY: 0,
     };
   },
 
@@ -25,6 +27,19 @@ const app = Vue.createApp({
 
     toggleShowBooks() {
       this.showBooks = !this.showBooks;
+    },
+
+    handleEvent($event, data) {
+      console.log($event);
+
+      if (data) {
+        console.log(data);
+      }
+    },
+
+    handleMouseMove($event) {
+      this.offsetX = $event.offsetX;
+      this.offsetY = $event.offsetY;
     },
   },
 });
