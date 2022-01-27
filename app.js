@@ -6,22 +6,25 @@ const app = Vue.createApp({
       showBooks: true,
       books: [
         {
+          id: 1,
           title: 'In Search of Lost Time',
           author: 'Marcel Proust',
           year: 1913,
           imageUrl:
             'https://d3i5mgdwi2ze58.cloudfront.net/7hqv6ddaqv363p4hadx6lymotow1',
-          isFavorite: true,
+          isFavorite: false,
         },
         {
+          id: 2,
           title: 'Ulysses',
           author: 'James Joyce',
           year: 1922,
           imageUrl:
             'https://d3i5mgdwi2ze58.cloudfront.net/f7nkbyqfsnrrlct3hs01jkrz2vdi',
-          isFavorite: false,
+          isFavorite: true,
         },
         {
+          id: 3,
           title: 'Don Quixote',
           author: 'Miguel de Cervantes',
           year: 1605,
@@ -30,6 +33,7 @@ const app = Vue.createApp({
           isFavorite: false,
         },
         {
+          id: 4,
           title: 'One Hundred Years of Solitude',
           author: 'Gabriel Garcia Marquez',
           year: 1967,
@@ -38,6 +42,7 @@ const app = Vue.createApp({
           isFavorite: false,
         },
         {
+          id: 5,
           title: 'The Great Gatsby',
           author: 'F. Scott Fitzgerald',
           year: 1925,
@@ -54,6 +59,11 @@ const app = Vue.createApp({
   methods: {
     toggleShowBooks() {
       this.showBooks = !this.showBooks;
+    },
+
+    toggleFavorite(bookId) {
+      const book = this.books.find((book) => book.id === bookId);
+      book.isFavorite = !book.isFavorite;
     },
   },
 });

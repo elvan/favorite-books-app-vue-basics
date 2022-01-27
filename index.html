@@ -13,7 +13,7 @@
       body {
         background-color: #eee;
         max-width: 920px;
-        margin: 20px auto;
+        margin: 1rem auto;
       }
 
       p,
@@ -26,22 +26,23 @@
       li {
         list-style: none;
         background-color: #fff;
-        margin: 20px auto;
-        padding: 20px;
-        border-radius: 10px;
+        margin: 1rem auto;
+        padding: 1rem;
+        border-radius: 0.5rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        cursor: pointer;
       }
 
       li.favorite {
         background-color: deepskyblue;
       }
-
     </style>
     <script
       src="https://unpkg.com/vue@3.2.29/dist/vue.global.js"
-      defer></script>
+      defer
+    ></script>
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -59,8 +60,12 @@
 
       <div v-if="showBooks">
         <ul>
-          <li v-for="book in books" :class="{ favorite: book.isFavorite}">
-            <img :src="book.imageUrl" :alt="book.title">
+          <li
+            v-for="book in books"
+            :class="{ favorite: book.isFavorite}"
+            @click="toggleFavorite(book.id)"
+          >
+            <img :src="book.imageUrl" :alt="book.title" />
             <h3>{{ book.title }}</h3>
             <p>{{ book.author }}</p>
             <p>{{ book.year }}</p>
